@@ -53,7 +53,7 @@ post "/surrendervote" do |env|
 
   client = HTTP::Client.new(webhookURL)
   client.tls?
-  slackres = client.post_form res_url, data
+  slackres = client.post res_url.to_s, form: data
   puts slackres.status_code
   puts slackres.body
   text
