@@ -16,29 +16,29 @@ post "/surrendervote" do |env|
   channelId = "C3NJ53VPS"
   imageURL = getImage(userId)
   text = "It's time to surrender..."
-  attachments = [
+  attachments = "[
     {
-      "text":            "Choose your fate",
-      "fallback":        "You are unable to choose an option",
-      "callback_id":     "choose_fate",
-      "color":           "#3AA3E3",
-      "attachment_type": "default",
-      "actions":         [
+      \"text\":            \"Choose your fate\",
+      \"fallback\":        \"You are unable to choose an option\",
+      \"callback_id\":     \"choose_fate\",
+      \"color\":           \"#3AA3E3\",
+      \"attachment_type\": \"default\",
+      \"actions\":         [
         {
-          "name":  "vote",
-          "text":  "Surrender",
-          "type":  "button",
-          "value": "surrender",
+          \"name\":  \"vote\",
+          \"text\":  \"Surrender\",
+          \"type\":  \"button\",
+          \"value\": \"surrender\",
         },
         {
-          "name":  "vote",
-          "text":  "Keep Fighting",
-          "type":  "button",
-          "value": "fight",
+          \"name\":  \"vote\",
+          \"text\":  \"Keep Fighting\",
+          \"type\":  \"button\",
+          \"value\": \"fight\",
         },
       ],
     },
-  ]
+  ]"
 
   data = "{
   	\"text\":						\">#{text}\",
