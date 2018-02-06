@@ -1,0 +1,17 @@
+name: surrendervote
+version: 0.1.0
+
+authors:
+  -  <travis.williams63@gmail.com>
+
+targets:
+  surrendervote:
+    main: src/surrendervote.cr
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+
+crystal: 0.24.1
+
+license: MIT
