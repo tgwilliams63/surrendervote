@@ -59,4 +59,5 @@ post "/surrendervote" do |env|
   text
 end
 
+Kemal.config.port = 3001
 Kemal.run
