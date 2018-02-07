@@ -16,8 +16,9 @@ post "/surrendervote" do |env|
   channelId = "C3NJ53VPS"
   imageURL = getImage(userId)
   text = "It's time to surrender..."
-  attachments = %([
-    {
+
+  attachments = %(
+    [{
       "text":            "Choose your fate",
       "fallback":        "You are unable to choose an option",
       "callback_id":     "choose_fate",
@@ -27,29 +28,26 @@ post "/surrendervote" do |env|
           "name":  "vote",
           "text":  "Surrender",
           "type":  "button",
-          "value": "surrender",
+          "value": "surrender"
         },
         {
           "name":  "vote",
           "text":  "Keep Fighting",
           "type":  "button",
-          "value": "fight",
-        },
-      ],
-    },
-  ])
-
-  puts attachments
+          "value": "fight"
+        }
+      ]
+    }]
+  )
 
   data = %({
   	"text":						">#{text}",
   	"username":				"#{userName}",
   	"channel":				"#{channelId}",
   	"icon_url":				"#{imageURL}",
-  	"response_type":	"in_channel"
-  	"attachments": 		"#{attachments}",
+  	"response_type":	"in_channel",
+  	"attachments":    #{attachments}
   })
-  # puts data
 
   client = HTTP::Client.new(webhookURL)
   client.tls?
