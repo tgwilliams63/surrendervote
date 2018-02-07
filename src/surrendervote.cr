@@ -16,12 +16,11 @@ post "/surrendervote" do |env|
   channelId = "C3NJ53VPS"
   imageURL = getImage(userId)
   text = "It's time to surrender..."
-  attachments = %q([
+  attachments = %([
     {
       "text":            "Choose your fate",
       "fallback":        "You are unable to choose an option",
       "callback_id":     "choose_fate",
-      "color":           "#3AA3E3",
       "attachment_type": "default",
       "actions":         [
         {
@@ -40,15 +39,16 @@ post "/surrendervote" do |env|
     },
   ])
 
-  data = "{
-  	\"text\":						\">#{text}\",
-  	\"attachments\": 		\"#{attachments}\",
-  	\"username\":				\"#{userName}\",
-  	\"channel\":				\"#{channelId}\",
-  	\"icon_url\":				\"#{imageURL}\",
-  	\"response_type\":	\"in_channel\"
-  }"
+  puts attachments
 
+  data = %({
+  	"text":						">#{text}",
+  	"username":				"#{userName}",
+  	"channel":				"#{channelId}",
+  	"icon_url":				"#{imageURL}",
+  	"response_type":	"in_channel"
+  	"attachments": 		"#{attachments}",
+  })
   # puts data
 
   client = HTTP::Client.new(webhookURL)
